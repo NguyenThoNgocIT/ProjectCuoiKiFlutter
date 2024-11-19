@@ -152,6 +152,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
               if (_auth == Auth.signin)
+                // các ô tham chiếu nhập dữ liệu của người dùng
                 Container(
                   padding: const EdgeInsets.all(8),
                   color: GlobalVariables.backgroundColor,
