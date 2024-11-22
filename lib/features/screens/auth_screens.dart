@@ -2,40 +2,31 @@ import 'package:e_commerce_doancuoikingocit/common/widgets/custom_button.dart';
 import 'package:e_commerce_doancuoikingocit/common/widgets/custom_textfield.dart';
 import 'package:e_commerce_doancuoikingocit/constants/global_variables.dart';
 import 'package:flutter/material.dart';
-// import 'package:e_commerce_doancuoikingocit/services/auth_service.dart'
-
-
-
+import 'package:e_commerce_doancuoikingocit/services/auth_service.dart';
 
 enum Auth {
   signin,
   signup,
 }
 
-class AuthScreen extends StatefulWidget {
+class AuthScreens extends StatefulWidget {
   static const String routeName = '/auth-screen';
-  const AuthScreen({Key? key}) : super(key: key);
+  const AuthScreens({Key? key}) : super(key: key);
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  State<AuthScreens> createState() => _AuthScreenState();
 }
 
-class AuthScreen extends StatefulWidget {
-  static const String routeName = '/auth-screen';
-  const AuthScreen({Key? key}) : super(key: key);
-
-  @override
-  State<AuthScreen> createState() => _AuthScreenState();
-}
-
-class _AuthScreenState extends State<AuthScreen> {
+class _AuthScreenState extends State<AuthScreens> {
   Auth _auth = Auth.signup;
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
-  final AuthService authService = AuthService();
+  // final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+
+  get authService => null;
 
   @override
   void dispose() {
@@ -111,16 +102,21 @@ class _AuthScreenState extends State<AuthScreen> {
                         CustomTextField(
                           controller: _nameController,
                           hintText: 'Name',
+                          obscureText: false,
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _emailController,
-                          hintText: 'Email',
+                          hintText: 'Email', obscureText: false,
+
+                          ///false: cho các trường nhập văn bản thông thường (tên, email, username...)
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
-                          hintText: 'Password',
+                          hintText: 'Password', obscureText: true,
+
+                          ///true: cho các trường nhập mật khẩu, để ẩn nội dung khi người dùng nhập vào.
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
@@ -168,11 +164,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         CustomTextField(
                           controller: _emailController,
                           hintText: 'Email',
+                          obscureText: false,
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
                           hintText: 'Password',
+                          obscureText: true,
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
