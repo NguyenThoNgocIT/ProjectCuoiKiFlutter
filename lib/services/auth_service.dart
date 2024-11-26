@@ -8,9 +8,9 @@ import 'package:e_commerce_doancuoikingocit/common/widgets/bottom_bar.dart';
 import 'package:e_commerce_doancuoikingocit/constants/error_handling.dart';
 import 'package:e_commerce_doancuoikingocit/constants/utils.dart';
 // import 'package:amazon_clone_tutorial/models/user.dart';
-import 'package:e_commerce_doancuoikingocit/providers/user_provider.dart' as user_provider;</pre>
+// import 'package:e_commerce_doancuoikingocit/providers/user_provider.dart' as user_provider;</pre>
 
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 // import 'package:http/http.dart' as http;
 // import 'package:http/http.dart' as http;
