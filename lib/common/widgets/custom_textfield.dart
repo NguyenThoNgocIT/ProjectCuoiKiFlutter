@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
               borderSide: BorderSide(
             color: Colors.black38,
           ))),
+          // chức năng ẩn hiện mật khẩu ở đây
       validator: (val) {
         if (val == null || val.isEmpty) {
           return 'Enter your $hintText';

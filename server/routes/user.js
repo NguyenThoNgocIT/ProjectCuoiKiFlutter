@@ -1,9 +1,9 @@
-import express from"express";
+import express from "express";
 const userRouter = express.Router();
-import auth from"../middlewares/auth.js";
+import auth from "../middlewares/auth.js";
 // const Order = require("../models/order");
-import { Product }  from "../models/product.js";
-import User from"../models/user.js";
+import { Product } from "../models/product.js";
+import User from "../models/user.js";
 
 userRouter.post("/api/add-to-cart", auth, async (req, res) => {
   try {
@@ -22,10 +22,10 @@ userRouter.post("/api/add-to-cart", auth, async (req, res) => {
       }
 
       if (isProductFound) {
-        let producttt = user.cart.find((productt) =>
+        let product = user.cart.find((product) =>
           productt.product._id.equals(product._id)
         );
-        producttt.quantity += 1;
+        product.quantity += 1;
       } else {
         user.cart.push({ product, quantity: 1 });
       }

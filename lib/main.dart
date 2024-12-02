@@ -1,16 +1,35 @@
 import 'package:e_commerce_doancuoikingocit/constants/global_variables.dart';
-import 'package:e_commerce_doancuoikingocit/features/screens/auth_screens.dart';
+import 'package:e_commerce_doancuoikingocit/features/auth/screens/auth_screen.dart';
+import 'package:e_commerce_doancuoikingocit/features/auth/service/auth_service.dart';
+import 'package:e_commerce_doancuoikingocit/models/user.dart';
+import 'package:e_commerce_doancuoikingocit/providers/user_provider.dart';
 import 'package:e_commerce_doancuoikingocit/router.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create:(context)=>
+      UserProvider(),
+    ),
+  ], child: const MyApp()));
+
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  final AuthService authService = AuthService();
+
+  void initState(){
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,16 +53,14 @@ class MyApp extends StatelessWidget {
             const Center(
               child: const Text("Flutter"),
             ),
-            Builder(
-              builder: (context) {
-                return ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AuthScreens.routeName);
-                  },
-                  child: Text("Click"),
-                );
-              }
-            ),
+            Builder(builder: (context) {
+              return ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AuthScreen.routeName);
+                },
+                child: Text("Click"),
+              );
+            }),
           ],
         ),
       ),
