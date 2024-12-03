@@ -1,12 +1,12 @@
-// import 'package:amazon_clone_tutorial/constants/global_variables.dart';
-// import 'package:amazon_clone_tutorial/features/account/screens/account_screen.dart';
-// import 'package:amazon_clone_tutorial/features/cart/screens/cart_screen.dart';
-// import 'package:amazon_clone_tutorial/features/home/screens/home_screen.dart';
-// import 'package:amazon_clone_tutorial/providers/user_provider.dart';
-// import 'package:badges/badges.dart';
 import 'package:e_commerce_doancuoikingocit/constants/global_variables.dart';
+import 'package:e_commerce_doancuoikingocit/features/account/screens/account_screen.dart';
+import 'package:e_commerce_doancuoikingocit/features/cart/screens/cart_screen.dart';
+import 'package:e_commerce_doancuoikingocit/features/home/screens/home_screen.dart';
+import 'package:e_commerce_doancuoikingocit/providers/user_provider.dart'; //thêm dependency: provider: ^6.0.5 trong file pubspec.yaml
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart'; //thêm dependency: provider: ^6.0.5 trong file pubspec.yaml
+import 'package:badges/badges.dart'
+    as badges; //thêm dependency: badges: ^3.0.2 trong file pubspec.yaml
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -27,6 +27,7 @@ class _BottomBarState extends State<BottomBar> {
     const CartScreen(),
   ];
 
+  // chức năng chuyển trang
   void updatePage(int page) {
     setState(() {
       _page = page;
@@ -101,10 +102,15 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child: Badge(
-                elevation: 0,
-                badgeContent: Text(userCartLen.toString()),
-                badgeColor: Colors.white,
+              // Để hiển thị biểu tượng giỏ hàng với số lượng sản phẩm trong giỏ
+              child: badges.Badge(
+                badgeContent: Text(
+                  userCartLen.toString(),
+                  style: const TextStyle(color: Colors.black),
+                ),
+                badgeColor: Colors
+                    .white, // Chỉnh sửa tại đây, không cần dùng BadgeStyle nữa
+                elevation: 0, // Đảm bảo không có hiệu ứng đổ bóng
                 child: const Icon(
                   Icons.shopping_cart_outlined,
                 ),
