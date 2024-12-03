@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
-
+// có chức năng kiểm tra và xác thực mã thông báo (token) trong các yêu cầu HTTP. Nó thường được 
+// sử dụng trong các ứng dụng
+//  web để bảo vệ các route yêu cầu người dùng phải được xác thực trước khi truy cập.
 const auth = async (req, res, next) => {
   try {
     // Lấy token từ header ủy quyền của yêu cầu HTTP 

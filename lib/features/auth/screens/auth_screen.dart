@@ -99,17 +99,17 @@ class _AuthScreenState extends State<AuthScreen> {
                       children: [
                         CustomTextField(
                           controller: _nameController,
-                          hintText: 'Name',obscureText: false,
+                          hintText: 'Name',obscureText: false, validator: (value) {  },
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _emailController,
-                          hintText: 'Email',obscureText: false,
+                          hintText: 'Email',obscureText: false, validator: (value) {  },
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
-                          hintText: 'Password',obscureText: true,//hiển thị các ký tự mật khẩu dưới dạng dấu tròn                           
+                          hintText: 'Password',obscureText: true, validator: (value) {  },//hiển thị các ký tự mật khẩu dưới dạng dấu tròn                           
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
@@ -155,12 +155,12 @@ class _AuthScreenState extends State<AuthScreen> {
                       children: [
                         CustomTextField(
                           controller: _emailController,
-                          hintText: 'Email',obscureText: false,
+                          hintText: 'Email',obscureText: false, validator: (value) {  },
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
-                          hintText: 'Password',obscureText:true ,// Hiển thị các ký tự mật khẩu dưới dạng dấu tròn
+                          hintText: 'Password',obscureText:true, validator: (value) {  } ,// Hiển thị các ký tự mật khẩu dưới dạng dấu tròn
                         ),
                         const SizedBox(height: 10),
                         CustomButton(

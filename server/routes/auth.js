@@ -97,6 +97,9 @@ authRouter.post("/tokenIsValid", async (req, res) => {
 
 // Get user data (protected route)
 // CHỨC NĂNG ĐĂNG NHẬP, LẤY DỮ LIỆU NGƯỜI DÙNG (route được bảo vệ).
+/// Đây là một route bảo mật, nó sẽ trả về thông tin người dùng đã xác thực dựa trên token
+// gửi lên trong header của yêu cầu HTTP. Nếu token hợp lệ, nó sẽ trả về thông tin người dùng từ cơ sở dữ liệu,
+// bao gồm cả token mới được tạo ra.
 authRouter.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
   res.json({ ...user._doc, token: req.token });
